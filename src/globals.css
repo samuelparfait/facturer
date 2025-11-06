@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Set default font family */
+body {
+  font-family: "Ginto Copilot Variable", sans-serif;
+}
+
+/* Set button default cursor to pointer */
+button {
+  cursor: pointer;
+}
