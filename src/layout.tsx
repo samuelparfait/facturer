@@ -30,7 +30,7 @@ const roundToCents = (num: number) =>
   Math.round((num + Number.EPSILON) * 100) / 100;
 
 export default function InvoiceApp() {
-  const [activeTab, setActiveTab] = useState<string>("items");
+  const [activeTab, setActiveTab] = useState<string>("sender");
   const [isReverseCharge, setIsReverseCharge] = useState<boolean>(true);
 
   const [senderName, setSenderName] = useState("");
@@ -53,15 +53,15 @@ export default function InvoiceApp() {
   );
 
   const [beneficiaryName, setBeneficiaryName] = useState("");
-  const [bankName, setBankName] = useState("Revolut");
-  const [bankIban, setBankIban] = useState("GB46REVO00997031598744");
-  const [bankBic, setBankBic] = useState("REVOGB21");
+  const [bankName, setBankName] = useState("");
+  const [bankIban, setBankIban] = useState("");
+  const [bankBic, setBankBic] = useState("");
   const [vatPercent, setVatPercent] = useState<number>(0);
 
   const [items, setItems] = useState<Item[]>([
     {
       id: "1",
-      description: "Software Engineering & Architecture",
+      description: "",
       qty: 1,
       rate: 0,
     },
@@ -506,6 +506,7 @@ export default function InvoiceApp() {
                           id="bkName"
                           className="h-9 text-sm"
                           value={bankName}
+                          placeholder="e.g. JPMorgan Chase Bank"
                           onChange={(e) => setBankName(e.target.value)}
                         />
                       </div>
@@ -517,6 +518,7 @@ export default function InvoiceApp() {
                           id="bkBic"
                           className="h-9 text-sm rounded-md"
                           value={bankBic}
+                          placeholder="e.g. CHASUS33"
                           onChange={(e) => setBankBic(e.target.value)}
                         />
                       </div>
@@ -529,6 +531,7 @@ export default function InvoiceApp() {
                         id="bkIban"
                         className="h-9 text-sm rounded-md"
                         value={bankIban}
+                        placeholder="e.g. GB29 NWBK 6016 1331 9268 19"
                         onChange={(e) => setBankIban(e.target.value)}
                       />
                     </div>
